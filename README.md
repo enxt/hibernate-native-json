@@ -2,8 +2,6 @@ hibernate-native-json
 =================
 
 
-[![Build Status](https://travis-ci.org/enxt/hibernate-native-json.svg?branch=master)](https://travis-ci.org/enxt/hibernate-native-json?branch=master) 
-[![Coverage Status](https://coveralls.io/repos/github/enxt/hibernate-native-json/badge.svg?branch=master)](https://coveralls.io/github/enxt/hibernate-native-json?branch=master) 
 [![Issues](https://img.shields.io/github/issues/enxt/hibernate-native-json.svg)](https://github.com/enxt/hibernate-native-json/issues) 
 [![Forks](https://img.shields.io/github/forks/enxt/hibernate-native-json.svg)](https://github.com/enxt/hibernate-native-json/network) 
 [![Stars](https://img.shields.io/github/stars/enxt/hibernate-native-json.svg)](https://github.com/enxt/hibernate-native-json/stargazers)
