@@ -1,7 +1,7 @@
 hibernate-native-json
 =================
 
-
+[![Release](https://jitpack.io/v/enxt/hibernate-native-json.svg)](https://jitpack.io/#enxt/hibernate-native-json)
 [![Issues](https://img.shields.io/github/issues/enxt/hibernate-native-json.svg)](https://github.com/enxt/hibernate-native-json/issues) 
 [![Forks](https://img.shields.io/github/forks/enxt/hibernate-native-json.svg)](https://github.com/enxt/hibernate-native-json/network) 
 [![Stars](https://img.shields.io/github/stars/enxt/hibernate-native-json.svg)](https://github.com/enxt/hibernate-native-json/stargazers)
