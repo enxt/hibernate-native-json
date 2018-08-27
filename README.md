@@ -87,26 +87,4 @@ and will product the following SQL in MariaDB:
 ```
 
 
-### DDL generation
-Considering this class:
-```
-@Entity
-@Table(name = "items")
-public class Item {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-
-    @Column(name = "name")
-    private String name;
-
-    @Type(type = "org.hibernate.json.dialect.JsonUserType")
-    @Column(name = "label")
-    private Label label;
-
-    @Type(type = "org.hibernate.json.dialect.JsonUserType")
-    private Map<String, String> extra;
-```
-
 
