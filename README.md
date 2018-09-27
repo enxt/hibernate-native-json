@@ -25,28 +25,29 @@ Check the src/test folder to see a full example.
 You can serialize either a class or a Map<String, Object> (in any cases a more dynamic field is necessary).
 
 ```
+@TypeDef(name = "json", typeClass = org.hibernate.type.json.JsonStringType.class)
 @Entity
 public class MyClass {
-
-	@Type(type = "org.hibernate.json.dialect.JsonUserType")
-	private Map<String, String> extra;
-
+    @Type(type = "json")
+    private Map<String, Object> extra;
 }
 ```
 
-
-In order to be able to persist, query and generate DDL for this objects you need to set hibernate dialect to `PostgisJsonDialect` or `MariaDBJsonDialect`.
-
-
-```
-  spring.jpa.database-platform=org.hibernate.json.dialect.MariaDBJsonDialect
-  spring.jpa.database-platform=org.hibernate.json.dialect.PostgisJsonDialect
-```
-
-
 Now you can persist your object as a json using your hibernate session / jpa repository.
 
-### Querying 
+### Querying
+
+In order to use the new json_text function you need register this in you hibernate with the propertie (only abailable from 5.3 version of hibernate):
+
+```
+hibernate.metadata_builder_contributor=org.hibernate.type.json.MariaDBSqlJsonFunctionsBuilder
+```
+or
+```
+hibernate.metadata_builder_contributor=org.hibernate.type.json.PostgreSqlJsonFunctionsBuilder
+```
+
+ensure that it's registered
 
 `json_text`: is equivalent to postgres `->>` get JSON object field as text
 http://www.postgresql.org/docs/9.5/static/functions-json.html
@@ -56,12 +57,12 @@ https://mariadb.com/kb/en/library/json-functions/
 
 This allow a HQL query like this:
 ```
-	select
-		json_text(i.label, 'value')
-	from
-		Item i
-	where
-		json_text(i.label, 'lang') = :lang
+    select
+        json_text(i.label, 'value')
+    from
+        Item i
+    where
+        json_text(i.label, 'lang') = :lang
 ```
 
 Witch will produce the following SQL in PostgreSQL:
